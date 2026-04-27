@@ -11,7 +11,7 @@ Storage backend is selected automatically at startup:
 import os
 import time
 import logging
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, jsonify, request, send_from_directory
 from flask_cors import CORS
 
 # Load .env file if python-dotenv is installed (ignored gracefully if not)
@@ -51,7 +51,8 @@ def create_app() -> Flask:
     def index():
         accept = request.headers.get("Accept", "")
         if "text/html" in accept:
-            return render_template("index.html")
+            # Serve directly to avoid Jinja2 conflicting with Handlebars {{ }} syntax
+            return send_from_directory(flask_app.template_folder, "index.html")
         return jsonify({
             "service": "AI Playground API",
             "version": "3.0.0",
