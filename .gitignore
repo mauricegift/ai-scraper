@@ -1,0 +1,49 @@
+# Replit platform files
+.replit
+replit.nix
+replit.md
+.breakpoints
+.config/
+.local/
+.upm/
+.cache/
+.pythonlibs/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+.eggs/
+venv/
+env/
+.env
+.env.*
+
+# Node / JS
+node_modules/
+.npm/
+*.log
+
+# Session / runtime data
+sessions_store.json
+*.db
+*.sqlite
+
+# Test files
+test_*.py
+*_test.py
+tests/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo

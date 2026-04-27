@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ai-playground
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn "app:create_app()" -w 2 -b 0.0.0.0:$PORT --timeout 120 --worker-class sync
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: HF_TOKEN
+        sync: false
+      - key: DATABASE_URL
+        sync: false
